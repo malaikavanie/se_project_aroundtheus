@@ -1,0 +1,24 @@
+@media screen and (max-width:480px){
+
+    .profile__title{
+        background-color: pink;
+    flex-direction: column;}
+
+    .profile__info{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .profile__add-button{
+        width: 100%;
+        margin:0;
+        }
+        
+        .profile__description{
+            text-align: center;
+            width: 100%;
+        }
+        
+}

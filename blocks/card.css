@@ -1,0 +1,51 @@
+.cards{
+    max-width: 880px;
+    width: 100%;
+    
+}
+
+.card__list{
+display: grid;
+
+grid-template-columns: repeat(auto-fit, 282px);
+grid-gap: 20px 17px;
+margin: 0;
+padding: 0;
+
+
+
+}
+
+.card{
+display: flex;
+list-style: none;
+flex-direction: column;
+border-radius: 10px;
+
+}
+.card__image{
+ width: 282px;
+height:282px;
+border-radius: 10px;
+
+
+}
+
+.card__description{
+    display: flex;
+    background-color: white;
+    color: black;
+    padding-top: 25px;
+    padding-left:20px;
+    padding-bottom:  25px;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.card__like-button{
+    background: transparent url(../images/edit-like.svg) center no-repeat;
+    height: 18px;
+    width:21px;
+
+}
