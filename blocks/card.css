@@ -10,9 +10,9 @@ padding: 0;
 
 .card{
 display: flex;
-list-style: none;
 flex-direction: column;
 border-radius: 10px;
+
 
 }
 .card__image{
@@ -39,5 +39,9 @@ border-radius: 10px;
     background: transparent url(../images/edit-like.svg) center no-repeat;
     height: 18px;
     width:21px;
+    cursor: pointer;
+}
 
+.card__like-button:hover{
+    opacity: 50%;
 }

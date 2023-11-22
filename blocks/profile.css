@@ -17,6 +17,12 @@ width: 24px;
 grid-area: button;
 position: relative;
 top: 50px;
+cursor: pointer;
+border: 1px solid #fff;
+}
+
+.profile__edit-button:hover{
+opacity: 60%;
 }
 
 .profile__add-button{
@@ -24,6 +30,12 @@ background: transparent url(../images/add-button.svg) no-repeat center;
 height: 50px;
 width: 150px;
 margin-left: auto;
+cursor: pointer;
+border: 2px solid #fff;
+}
+
+.profile__add-button:hover{
+opacity: 60%;
 }
 
 .profile__title{

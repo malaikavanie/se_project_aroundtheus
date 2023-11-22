@@ -1,9 +1,9 @@
 footer{
     font-family: 'Inter','Times New Roman', Times, serif;
-    top: 139px;
+    position: relative;
     }
     
-    .footer__logo{
+    .footer__text{
     width: 318px;
     height: 18px;
     
