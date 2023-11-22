@@ -1,12 +1,9 @@
 footer{
-    font-family: 'Inter','Times New Roman', Times, serif;
-    position: relative;
-    margin: 67px auto 60px;
+font-family: 'Inter','Times New Roman', Times, serif;
+margin: 67px auto 60px;
     }
     
-    .footer__text{
-    width: 318px;
-    height: 18px;
-    
-    }
+.footer__text{
+max-width: 318px;
+}
     
