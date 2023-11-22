@@ -23,6 +23,22 @@
         
 }
 
+@media screen and (max-width: 600px){
+  .page__content{
+    padding: 0;
+}
+}
+
+@media screen (min-width: 320px) and (max-width: 770px){
+  .header{
+    padding: 28px 0 32px;
+    width : 100%;
+    box-sizing:border-box ;
+  }
+}
+  
+
+
 @media screen and (max-width: 934px) {
     .footer {
       max-width: calc(100% - 100px);
