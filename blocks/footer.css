@@ -1,9 +1,39 @@
-footer{
-font-family: 'Inter','Times New Roman', Times, serif;
-margin: 67px auto 60px;
-    }
-    
-.footer__text{
-max-width: 318px;
+footer {
+  font-family: "Inter", "Times New Roman", Times, serif;
+  margin: 67px auto 60px;
 }
-    
+
+.footer__text {
+  max-width: 318px;
+}
+
+@media screen and (max-width: 934px) {
+  .footer {
+    max-width: calc(100% - 100px);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .footer {
+    max-width: 604px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .footer {
+    max-width: 720px;
+    width: 100%;
+  }
+  .footer__text {
+    margin-left: 40px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .footer__text {
+    font-size: 14px;
+    line-height: 14px;
+    margin-left: 19px;
+  }
+}
