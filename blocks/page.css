@@ -5,7 +5,6 @@
 
 .page__section {
   max-width: 880px;
-  width: 100%;
   position: relative;
   margin: 0 auto;
 }
@@ -18,9 +17,15 @@
   padding: 0 20px;
 }
 
+@media screen and (max-width: 1100px) {
+  .page__content {
+    margin: 0 20px;
+    max-width: calc(100% - 40px);
+  }
+}
+
 @media screen and (max-width: 934px) {
   .page__content {
-    overflow-x: hidden;
     margin: 0 40px;
     max-width: calc(100% - 80px);
   }
@@ -39,7 +44,6 @@
   .page__content {
     margin: 0 19px;
     max-width: calc(100% - 38px);
-    min-width: 282px;
   }
   .page__section {
     margin: 28px 0 42px;

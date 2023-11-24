@@ -1,62 +1,25 @@
+.cards {
+  font-family: "Inter", "Times New Roman", Times, serif;
+  padding: 15px 0 36px;
+}
+
 .cards__list {
   display: grid;
-  justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
+  grid-gap: 20px 18px;
   margin: 0;
   padding: 0;
+  justify-content: center;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.card__image {
-  width: 282px;
-  height: 282px;
-  object-fit: cover;
-}
-
-.card__description {
-  display: flex;
-  background-color: white;
-  color: black;
-  padding: 25px 20px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card__title {
-  margin: 0;
-  line-height: 29px;
-  max-width: 219px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.card__like-button {
-  background: transparent url(../images/edit-like.svg) center no-repeat;
-  height: 18px;
-  width: 21px;
-  cursor: pointer;
-  border: none;
-}
-
-.card__like-button:hover {
-  opacity: 50%;
-}
-
-@media screen and (max-width: 934px) {
-  .cards__list {
-    gap: 40px 40px;
+@media screen and (max-width: 620px) {
+  .cards {
+    padding-top: 36px;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 568px) {
   .cards__list {
-    gap: 20px 200px;
+    padding: 15px 0 18px;
   }
 }
