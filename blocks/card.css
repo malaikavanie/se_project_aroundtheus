@@ -45,15 +45,3 @@
 .card__like-button:hover {
   opacity: 50%;
 }
-
-@media screen and (max-width: 934px) {
-  .cards__list {
-    gap: 40px 40px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .cards__list {
-    gap: 20px 200px;
-  }
-}

@@ -9,7 +9,13 @@
   margin: 0 auto;
 }
 
-.page__content {
+@media screen and (max-width: 620px) {
+  .page {
+    padding: 0;
+  }
+}
+
+/*.page__content {
   display: flex;
   flex-direction: column;
   justify-content: center;

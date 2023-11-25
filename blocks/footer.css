@@ -1,5 +1,6 @@
 footer {
-  margin: 67px auto 60px;
+  margin: 67px 0 60px;
+  display: flex;
 }
 
 .footer__text {
@@ -14,31 +15,14 @@ footer {
   margin: 0;
 }
 
-/*@media screen and (max-width: 934px) {
+@media screen and (max-width: 620px) {
   .footer {
-    max-width: calc(100% - 100px);
+    padding: 48px 0 36px;
+    max-width: 282px;
   }
-}
 
-@media screen and (max-width: 850px) {
-  .footer {
-    max-width: 604px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .footer {
-    max-width: 720px;
-  }
-  .footer__text {
-    margin-left: 40px;
-  }
-}
-
-@media screen and (max-width: 520px) {
   .footer__text {
     font-size: 14px;
-    line-height: 14px;
-    margin-left: 19px;
+    line-height: 17px;
   }
 }
