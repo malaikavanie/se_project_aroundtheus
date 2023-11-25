@@ -133,3 +133,13 @@
     height: 18px;
   }
 }
+
+/*On desktop 1280px:
+Incorrect position of profile__edit-button and profile__add-button.
+Incorrect gap between profile__title and profile__description elements.
+Incorrect position of card__like-button.
+Incorrect height of card blocks.
+Incorrect gap between cards and footer sections.
+Incorrect font size and font color of footer__text text.
+
+I dont know how to fix that/ I tried to seek assistance with the tutors for 2 days and got no help.
