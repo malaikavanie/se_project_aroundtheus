@@ -13,7 +13,7 @@
   grid-template-columns: minmax(auto, 373px) auto;
   align-items: center;
   gap: 7px 18px;
-  margin: 22px 0 auto 30px;
+  margin: 22px 12px auto 30px;
 }
 
 .profile__edit-button {
@@ -37,7 +37,7 @@
   height: 50px;
   padding: 0;
   width: 150px;
-  margin: 35px 0 0 auto;
+  margin: 0 0 0 auto;
   cursor: pointer;
   border: 2px solid #fff;
 }
@@ -77,12 +77,12 @@
   width: 120px;
   border-radius: 50%;
   background-position: center;
-  margin-right: 24px;
   object-fit: cover;
 }
 
 @media screen and (max-width: 620px) {
   .profile {
+    width: 282px;
     flex-direction: column;
     padding: 42px auto 0;
   }
@@ -96,7 +96,6 @@
   }
 
   .profile__info {
-    padding-left: 28px;
     margin: 30px auto 0;
     grid-gap: 14px 10px;
   }
@@ -112,9 +111,6 @@
 }
 
 @media screen and (max-width: 770px) {
-  .profile__info {
-    margin-top: auto;
-  }
 
   .profile__title {
     line-height: 27px;
