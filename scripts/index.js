@@ -15,7 +15,7 @@ const initialCards = [
   },
 
   {
-    namee: "Latemar",
+    name: "Latemar",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
   },
   {
