@@ -6,8 +6,8 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: flex;
-  margin: 0 19px;
+  display: none;
+  padding: 0 19px;
 }
 
 .modal__opened {
@@ -33,6 +33,12 @@
   cursor: pointer;
   background: transparent url(../images/Close-button.svg) no-repeat;
   border: none;
+  transition: opacity 0.3s linear;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .modal__heading {
@@ -71,6 +77,20 @@
   padding-top: 0;
   padding-bottom: 13.26px;
   margin-bottom: 29.74px;
+}
+
+.modal__save {
+  color: #fff;
+  height: 50px;
+  background-color: black;
+  border-radius: 2px;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 0;
+  border: 0;
+  margin-top: 18px;
+  width: 358px;
+  transition: opacity 0.3s linear;
 }
 
 .modal__button {
