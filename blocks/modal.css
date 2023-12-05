@@ -6,7 +6,7 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: none;
+  display: flexe;
   padding: 0 19px;
 }
 
@@ -91,7 +91,7 @@
   padding: 0;
   border: 0;
   margin-top: 18px;
-  width: 358px;
+  max-width: 358px;
   transition: opacity 0.3s linear;
 }
 
