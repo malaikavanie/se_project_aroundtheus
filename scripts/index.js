@@ -44,7 +44,7 @@ const profileDescriptionInput = document.querySelector(
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
 function closePopop() {
-  profileEditModal.classList.remove("model__opened");
+  profileEditModal.classList.remove("model_opened");
 }
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
