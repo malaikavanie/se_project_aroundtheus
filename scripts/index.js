@@ -31,12 +31,49 @@ const initialCards = [
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileAddButton = document.querySelector(".profile__add-button");
+const profileSaveModal = document.querySelector(".modal__save");
+
+const profileEditCloseButton = profileEditModal.querySelector(".modal_close");
+const profileTitle = document.querySelector(".profile_title");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescription = document.querySelector(".profile_description");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+
+function closePopop() {
+  profileEditModal.classList.remove("model_opened");
+}
 profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("model_opened");
 });
 
-const profilecloseButton = document.querySelector("#profile-close-button");
-const profilecloseModal = document.querySelector("#profile-close-modal");
-profileCloseButton.addEventListener("click", () => {
-  profileCloseModal.classList.add("model_closed");
+profileEditForm.addEventListener("submit", (e) => {
+  closePopop();
+});
+profileEditButton.addEventListener("click", () => {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+});
+
+function createCard(data) {
+  const cardTemplate = document.querySelector("#card").content;
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  cardElement.querySelector(".card__title").textContent = data.name;
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.setAttribute("src", data.link);
+  cardImage.setAttribute("alt", data.name);
+  return cardElement;
+}
+
+const cardsContainer = document.querySelector(".cards__list");
+
+initialCards.forEach((item) => {
+  const card = createCard(item);
+  cardsContainer.append(card);
 });

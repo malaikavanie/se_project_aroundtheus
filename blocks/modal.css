@@ -59,6 +59,8 @@
   display: flex;
   max-width: 358px;
   flex-direction: column;
+  gap: 30px;
+  margin-top: 54px;
 }
 
 .modal__input {
