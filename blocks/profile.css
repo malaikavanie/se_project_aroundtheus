@@ -85,7 +85,7 @@
   .profile {
     width: 282px;
     flex-direction: column;
-    padding: 42px auto 0;
+    padding-top: 42px;
   }
 
   .profile__title {
