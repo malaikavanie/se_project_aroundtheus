@@ -65,22 +65,19 @@ function openPopop() {
 }
 profileEditButton.addEventListener("click", () => {
   openPopop();
-});
-
-function closePopop() {
-  profileEditModal.classList.remove("modal_opened");
-}
-profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal_opened");
 });
 
+function closePopop() {
+  profileEditModal.classList.remove("modal_opened");
+  closePopop();
+}
+
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   closePopop();
-});
-profileEditButton.addEventListener("click", () => {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
 });
