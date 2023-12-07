@@ -107,10 +107,38 @@
   margin-top: 20px;
 }
 
-@media screen and (max-width: 455px) {
+@media screen and (max-width: 650px) {
   .modal__container {
-    max-width: 282px;
-    height: 322px;
-    padding-left: 19px;
+    padding: 25px 22px;
+    gap: 30px;
+  }
+
+  .modal__heading {
+    line-height: 22px;
+    font-size: 18px;
+  }
+
+  .modal__form {
+    margin-top: 75px;
+  }
+
+  .modal__close {
+    width: 26px;
+    height: 26px;
+  }
+
+  .modal__save {
+    width: 238px;
+    font-size: 14px;
+    line-height: 17px;
+    height: 46px;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .modal__close {
+    bottom: calc(100% + 14px);
+    left: calc(100% - 26px);
   }
 }
