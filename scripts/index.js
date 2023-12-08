@@ -52,32 +52,35 @@ const profileAddButton = document.querySelector(".profile__add-button");
 const profileSaveModal = document.querySelector(".modal__save");
 
 const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
-const profileTitle = document.querySelector("profile__title");
+const profileTitle = document.querySelector(".profile__title");
 const profileTitleInput = document.querySelector("#profile-title-input");
-const profileDescription = document.querySelector("profile__description");
+const profileDescription = document.querySelector(".profile__description");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
-function openPopop() {
-  profileEditModal.classList.add("modal_opened");
+function openPopop(modal) {
+  modal.classList.add("modal_opened");
 }
 profileEditButton.addEventListener("click", () => {
-  openPopop();
+  openPopop(profileEditModal);
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal_opened");
 });
 
-function closePopop() {
-  profileEditModal.classList.remove("modal_opened");
-  closePopop();
+profileEditCloseButton.addEventListener("click", () => {
+  closePopop(profileEditModal);
+});
+
+function closePopop(modal) {
+  modal.classList.remove("modal_opened");
 }
 
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  closePopop();
+  closePopop(profileEditModal);
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
 });

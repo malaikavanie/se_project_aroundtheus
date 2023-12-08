@@ -33,10 +33,15 @@
               class="profile__edit-button"
               id="profile-edit-button"
               type="button"
+              aria-label="edit profile"
             ></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            type="button"
+            aria-label="add profile"
+          ></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
@@ -45,7 +50,11 @@
                 <img src="" alt="" class="card__image" />
                 <div class="card__description">
                   <h2 class="card__title"></h2>
-                  <button class="card__like-button" type="button"></button>
+                  <button
+                    class="card__like-button"
+                    type="button"
+                    aria-label="card like"
+                  ></button>
                 </div>
               </li>
             </template>
@@ -62,6 +71,7 @@
           class="modal__close"
           id="profile-close-modal"
           type="button"
+          aria-label="close modal"
         ></button>
         <h3 class="modal__heading" id="#profile__title">Edit Profile</h3>
         <form class="modal__form" name="profileForm">
@@ -69,17 +79,22 @@
             type="text"
             class="modal__input"
             name="title"
-            id="profile__title-input"
+            id="profile-title-input"
             placeholder="Name"
           />
           <input
             type="text"
             class="modal__input"
             name="description"
-            id="profile__description-input"
+            id="profile-description-input"
             placeholder="Description"
           />
-          <button class="modal__save" type="submit" id="profile-save-modal">
+          <button
+            class="modal__save"
+            type="submit"
+            id="profile-save-modal"
+            aria-label="save modal"
+          >
             Save
           </button>
         </form>
