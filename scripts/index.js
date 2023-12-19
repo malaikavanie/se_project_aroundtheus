@@ -32,6 +32,7 @@ const initialCards = [
 const modalAddImage = document.querySelector("#add-card-modal");
 const imageAddForm = document.forms["addCardForm"];
 const previewImage = document.querySelector("#image-preview-modal");
+const previewImageTitle = document.querySelector(".modal__image-title");
 
 function createCard(data) {
   const cardTemplate = document.querySelector("#card").content;
