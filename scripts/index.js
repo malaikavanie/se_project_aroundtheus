@@ -53,7 +53,7 @@ function createCard(data) {
     previewImage.setAttribute("src", data.link);
     previewImage.setAttribute("alt", data.name);
     previewImageTitle.textContent = data.name;
-    openModal(modalImagePreview);
+    openPopop(modalImagePreview);
   });
   return cardElement;
 }
@@ -139,7 +139,7 @@ function handleAddImageFormSubmit(evt) {
   const card = createCard(userCard);
   cardsContainer.prepend(card);
   imageAddForm.reset();
-  closeModal(modalAddImage);
+  closePopop(modalImagePreview);
 }
 //profileForm.addEventListener("submit", handleProfileFormSubmit);
 //addButton.addEventListener("click", () => openModal(modalAddImage));
