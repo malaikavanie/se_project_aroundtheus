@@ -31,7 +31,22 @@
 
 .modal__container_type_image {
   background-color: transparent;
-  padding: 0;
+  padding-top: 0;
+  max-height: 540px;
+  max-width: 816px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#image-close-modal {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% - 55px);
+  cursor: pointer;
 }
 
 .modal__close {
@@ -141,8 +156,9 @@
 }
 
 @media screen and (max-width: 650px) {
-  .modal__container {
-    padding: 25px 22px;
+  .modal__container_type_image {
+    max-height: 540px;
+    max-width: 433px;
   }
 
   .modal__heading {
@@ -186,8 +202,11 @@
     width: 26px;
     height: 26px;
   }
-  .modal__image {
-    max-width: 240px;
-    max-height: 299px;
+}
+@media only screen (max-width: 1000px) and (min-width: 650px) {
+  .modal__container {
+    margin-right: 40px;
+    margin-left: 40px;
+    /* Tried this to fix the broken design between those sizes but it does not work*/
   }
 }

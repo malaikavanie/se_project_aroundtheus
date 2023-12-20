@@ -31,6 +31,7 @@ const initialCards = [
 
 const imageAddForm = document.forms["addCardForm"];
 const previewImage = document.querySelector(".modal__image");
+
 const previewImageTitle = document.querySelector(".modal__image-title");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -47,9 +48,7 @@ const profileDescriptionInput = document.querySelector(
 
 const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
 const profileAddCloseButton = profileAddModal.querySelector(".modal__close");
-const cardTitle = document.querySelector(".card__title");
 const cardTitleInput = document.querySelector("#card-title-input");
-const cardUrl = document.querySelector(".profile__description");
 const cardUrlInput = document.querySelector("#card-url-input");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileAddForm = profileAddModal.querySelector(".modal__form");
@@ -57,6 +56,8 @@ const modalProfileEdit = document.querySelector("#modal-profile-edit");
 const profileForm = document.forms["profileForm"];
 
 const modalImagePreview = document.querySelector("#image-preview-modal");
+const previewImageCloseButton =
+  modalImagePreview.querySelector(".modal__close");
 
 function createCard(data) {
   const cardTemplate = document.querySelector("#card").content;
@@ -130,12 +131,16 @@ profileAddCloseButton.addEventListener("click", () => {
   closePopop(profileAddModal);
 });
 
+previewImageCloseButton.addEventListener("click", () => {
+  closePopop(modalImagePreview);
+});
+
 profileAddForm.addEventListener("submit", (e) => {
   e.preventDefault();
   closePopop(profileAddModal);
   const userCard = {};
-  //userCard["name"] = cardTitle.value;
-  userCard["link"] = cardUrl.value;
+  userCard.link = cardUrlInput.value;
+  userCard.name = cardTitleInput.value;
   const card = createCard(userCard);
   cardsContainer.prepend(card);
   profileAddForm.reset();
