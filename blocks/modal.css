@@ -29,6 +29,11 @@
   position: relative;
 }
 
+.modal__container_type_image {
+  background-color: transparent;
+  padding: 0;
+}
+
 .modal__close {
   width: 40px;
   height: 40px;
@@ -145,6 +150,12 @@
     font-size: 18px;
   }
 
+  .modal__close_preview-image {
+    width: 30px;
+    height: 30px;
+    bottom: calc(100% + 5px);
+    left: calc(100% + 5px);
+  }
   .modal__form {
     margin-top: 75px;
   }
@@ -174,5 +185,9 @@
     left: calc(100% - 26px);
     width: 26px;
     height: 26px;
+  }
+  .modal__image {
+    max-width: 240px;
+    max-height: 299px;
   }
 }
