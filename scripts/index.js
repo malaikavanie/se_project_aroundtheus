@@ -51,10 +51,8 @@ const profileAddCloseButton = profileAddModal.querySelector(".modal__close");
 const cardTitleInput = document.querySelector("#card-title-input");
 const cardUrlInput = document.querySelector("#card-url-input");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-const profileAddForm = profileAddModal.querySelector(".modal__form");
+const addCardForm = profileAddModal.querySelector(".modal__form");
 const modalProfileEdit = document.querySelector("#modal-profile-edit");
-const profileForm = document.forms["profileForm"];
-
 const modalImagePreview = document.querySelector("#image-preview-modal");
 const previewImageCloseButton =
   modalImagePreview.querySelector(".modal__close");
@@ -90,12 +88,6 @@ initialCards.forEach((item) => {
   cardsContainer.append(card);
 });
 
-likeButtons.forEach((likeButton) => {
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle(" ");
-  });
-});
-
 function openPopop(modal) {
   modal.classList.add("modal_opened");
 }
@@ -123,8 +115,6 @@ profileEditForm.addEventListener("submit", (e) => {
 
 profileAddButton.addEventListener("click", () => {
   openPopop(profileAddModal);
-  //cardTitleInput.value = cardTitle.textContent;
-  //cardUrlInput.value = cardUrl.textContent;
 });
 
 profileAddCloseButton.addEventListener("click", () => {
@@ -135,7 +125,7 @@ previewImageCloseButton.addEventListener("click", () => {
   closePopop(modalImagePreview);
 });
 
-profileAddForm.addEventListener("submit", (e) => {
+addCardForm.addEventListener("submit", (e) => {
   e.preventDefault();
   closePopop(profileAddModal);
   const userCard = {};
@@ -143,19 +133,5 @@ profileAddForm.addEventListener("submit", (e) => {
   userCard.name = cardTitleInput.value;
   const card = createCard(userCard);
   cardsContainer.prepend(card);
-  profileAddForm.reset();
+  addCardForm.reset();
 });
-
-//function handleAddImageFormSubmit(evt) {
-// evt.preventDefault();
-// const userCard = {};
-//userCard["name"] = modalImageTitle.value;
-// userCard["url"] = modalImageUrl.value;
-//const card = createCard(userCard);
-//cardsContainer.prepend(card);
-// imageAddForm.reset();
-//closePopop(modalAddImage);}
-
-//profileForm.addEventListener("submit", handleProfileFormSubmit);
-//addButton.addEventListener("click", () => openModal(modalAddImage));
-//imageAddForm.addEventListener("submit", handleAddImageFormSubmit);
