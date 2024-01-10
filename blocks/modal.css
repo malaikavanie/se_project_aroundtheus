@@ -94,33 +94,17 @@
   margin-bottom: 29.74px;
 }
 
-.modal__save {
+.modal__input_type_error {
+  border-color: #ff0000;
+}
+
+.modal__button {
   color: #fff;
   height: 50px;
   background-color: black;
   border-radius: 2px;
   font-size: 18px;
   line-height: 22px;
-  padding: 0;
-  border: 0;
-  margin-top: 18px;
-  max-width: 358px;
-  transition: opacity 0.3s linear;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
-}
-
-.modal__save:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.modal__create {
-  color: white;
-  background-color: black;
-  height: 50px;
-  border-radius: 2px;
-  line-height: 22px;
-  font-size: 18px;
   padding: 0;
   border: 0;
   margin-top: 18px;
@@ -128,9 +112,43 @@
   transition: opacity 0.3s linear;
 }
 
-.modal__create:hover {
+.modal__button_disabled {
+  background: #f6f6f6;
+  border: 1px solid #000;
+  color: #000;
+  opacity: 0.2;
+  cursor: default;
+}
+
+.modal__button_disabled:hover {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.modal__button:hover:not(:disabled) {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.modal__label {
+  position: relative;
+}
+
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #ff0000;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.modal__error_active {
+  opacity: 1;
+  color: red;
 }
 
 .modal__image {
@@ -138,65 +156,24 @@
   max-height: 75vh;
 }
 
-.modal__image-title {
-  margin: 10px 0 0;
-  font-size: 12px;
-  line-height: 15px;
-  font-weight: 400;
-}
-
-.modal__form-input {
-  height: 27.34px;
-  width: 100%;
-  margin-bottom: 29.74px;
-  padding: 0;
-  border-style: none none solid none;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-width: 1px;
-}
-.modal__form-input_error {
-  border: none;
-  border-bottom: 1px solid red;
-  margin: 0;
-  min-height: 17px;
-}
-.modal__form-input:last-of-type {
-  margin-bottom: 0;
-}
-.modal__input-type-url:last-of-type {
-  margin-bottom: 0;
-}
-.modal__save {
-  font-size: 18px;
-  width: 100%;
-  height: 50.15px;
-  background-color: #000;
-  color: #fff;
-  margin-top: 48px;
-  margin-bottom: 36px;
-  border: none;
-  padding: 0;
+.modal__button:hover {
+  opacity: 0.8;
   cursor: pointer;
 }
-.modal__close:hover {
-  opacity: 60%;
-}
-.modal__save_disabled {
+
+.modal__button_disabled {
   background: #f6f6f6;
   border: 1px solid #000;
   color: #000;
   opacity: 0.2;
   cursor: default;
 }
-.modal__save:hover {
-  opacity: 80%;
-}
-.modal__save_disabled:hover {
-  opacity: 0.2;
-  cursor: default;
-}
-.modal__error_active {
-  color: red;
+
+.modal__image-title {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 650px) {
