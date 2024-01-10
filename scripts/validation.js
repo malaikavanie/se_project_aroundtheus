@@ -32,36 +32,36 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement, options) => {
+const toggleButtonState = (inputList, saveElement, options) => {
   const { inactiveButtonClass } = options;
 
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(inactiveButtonClass);
+    saveElement.classList.add(inactiveButtonClass);
 
-    buttonElement.setAttribute("disabled", true);
+    saveElement.setAttribute("disabled", true);
   } else {
-    buttonElement.classList.remove(inactiveButtonClass);
+    saveElement.classList.remove(inactiveButtonClass);
 
-    buttonElement.removeAttribute("disabled");
+    saveElement.removeAttribute("disabled");
   }
 };
 
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
 
-  const { submitButtonSelector } = options;
+  const { submitSaveSelector } = options;
 
   const inputList = [...formElement.querySelectorAll(inputSelector)];
 
-  const buttonElement = formElement.querySelector(submitButtonSelector);
+  const saveElement = formElement.querySelector(submitSaveSelector);
 
-  toggleButtonState(inputList, buttonElement, options);
+  toggleButtonState(inputList, saveElement, options);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, options);
 
-      toggleButtonState(inputList, buttonElement, options);
+      toggleButtonState(inputList, saveElement, options);
     });
   });
 }
@@ -81,9 +81,9 @@ const config = {
 
   inputSelector: ".modal__input",
 
-  submitButtonSelector: ".modal__button",
+  submitSaveSelector: ".modal__save",
 
-  inactiveButtonClass: "modal__button_disabled",
+  inactiveSaveClass: "modal__save_disabled",
 
   inputErrorClass: "modal__input_type_error",
 
