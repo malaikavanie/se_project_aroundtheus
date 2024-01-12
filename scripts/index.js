@@ -89,6 +89,8 @@ initialCards.forEach((item) => {
 
 function openPopop(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalWithEscape);
+  modal.addEventListener("mousedown", closeModalWithRemoteClick);
 }
 
 profileEditButton.addEventListener("click", () => {
@@ -103,6 +105,8 @@ profileEditCloseButton.addEventListener("click", () => {
 
 function closePopop(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalWithEscape);
+  modal.removeEventListener("mousedown", closeModalWithRemoteClick);
 }
 
 function closeModalWithEscape(evt) {
