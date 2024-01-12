@@ -105,6 +105,18 @@ function closePopop(modal) {
   modal.classList.remove("modal_opened");
 }
 
+function closeModalWithEscape(evt) {
+  if (evt.key === "Escape") {
+    closePopop("modal_opened");
+  }
+}
+
+function closeModalWithRemoteClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopop(evt.currentTarget);
+  }
+}
+
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   closePopop(profileEditModal);
