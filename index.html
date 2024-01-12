@@ -93,7 +93,7 @@
               maxlength="40"
               required
             />
-            <span class="modal__error" id="person-name-error"></span>
+            <span class="modal__error" id="profile-title-input-error"></span>
           </label>
           <label class="modal__label">
             <input
@@ -106,7 +106,10 @@
               maxlength="200"
               required
             />
-            <span class="modal__error" id="person-description-error"></span>
+            <span
+              class="modal__error"
+              id="profile-description-input-error"
+            ></span>
           </label>
           <button
             class="modal__button"
@@ -137,8 +140,11 @@
               name="title"
               id="card-title-input"
               placeholder="Title"
+              minlength="2"
+              maxlength="40"
+              required
             />
-            <span class="modal__error" id="card-title-error"></span>
+            <span class="modal__error" id="card-title-input-error"></span>
           </label>
           <label class="modal__label">
             <input
@@ -149,7 +155,7 @@
               placeholder="Image url"
               required
             />
-            <span class="modal__error" id="card-url-error">Error</span>
+            <span class="modal__error" id="card-url-input-error">Error</span>
           </label>
           <button
             class="modal__button"
