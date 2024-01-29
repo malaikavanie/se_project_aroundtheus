@@ -1,3 +1,8 @@
+//***IMPORT SETTINGS***
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
+//***OBJECT-CARDS ARRAY SETTINGS***
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -28,9 +33,10 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+//***CONST SELECTION SETTINGS***>>
 const imageAddForm = document.forms["addCardForm"];
 const previewImage = document.querySelector(".modal__image");
-
 const previewImageTitle = document.querySelector(".modal__image-title");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -56,6 +62,7 @@ const modalImagePreview = document.querySelector("#image-preview-modal");
 const previewImageCloseButton =
   modalImagePreview.querySelector(".modal__close");
 
+//***FUNCTION CREATE CARDS***>>
 function createCard(data) {
   const cardTemplate = document.querySelector("#card").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
@@ -79,20 +86,20 @@ function createCard(data) {
   });
   return cardElement;
 }
-
+//***CARD LIKE SETTINGS***>>
 const cardsContainer = document.querySelector(".cards__list");
 const likeButtons = document.querySelectorAll(".card__like-button");
 initialCards.forEach((item) => {
   const card = createCard(item);
   cardsContainer.append(card);
 });
-
+//***FUNCTION OPEN MODAL***>>
 function openPopop(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalWithEscape);
   modal.addEventListener("mousedown", closeModalWithRemoteClick);
 }
-
+//***EDIT BUTTON SETTINGS***>>
 profileEditButton.addEventListener("click", () => {
   openPopop(profileEditModal);
   profileTitleInput.value = profileTitle.textContent;
@@ -103,6 +110,7 @@ profileEditCloseButton.addEventListener("click", () => {
   closePopop(profileEditModal);
 });
 
+//***FUNCTION CLOSE MODAL***>>
 function closePopop(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalWithEscape);
@@ -122,13 +130,14 @@ function closeModalWithRemoteClick(evt) {
   }
 }
 
+//***EDIT PROFILE SETTINGS***>>
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   closePopop(profileEditModal);
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
 });
-
+//***ADD BUTTON SETTINGS***>>
 profileAddButton.addEventListener("click", () => {
   openPopop(profileAddModal);
 });
