@@ -34,7 +34,7 @@ const initialCards = [
   },
 ];
 
-//***CONST SELECTION SETTINGS***>>
+//***CONST SELECTION SETTINGS***
 const imageAddForm = document.forms["addCardForm"];
 const previewImage = document.querySelector(".modal__image");
 const previewImageTitle = document.querySelector(".modal__image-title");
@@ -62,7 +62,7 @@ const modalImagePreview = document.querySelector("#image-preview-modal");
 const previewImageCloseButton =
   modalImagePreview.querySelector(".modal__close");
 
-//***FUNCTION CREATE CARDS***>>
+//***FUNCTION CREATE CARDS***
 function createCard(data) {
   const cardTemplate = document.querySelector("#card").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
@@ -86,14 +86,14 @@ function createCard(data) {
   });
   return cardElement;
 }
-//***CARD LIKE SETTINGS***>>
+//***CARD LIKE SETTINGS***
 const cardsContainer = document.querySelector(".cards__list");
 const likeButtons = document.querySelectorAll(".card__like-button");
 initialCards.forEach((item) => {
   const card = createCard(item);
   cardsContainer.append(card);
 });
-//***FUNCTION OPEN MODAL***>>
+//***FUNCTION OPEN MODAL***
 function openPopop(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalWithEscape);
@@ -160,3 +160,17 @@ addCardForm.addEventListener("submit", (e) => {
   cardsContainer.prepend(card);
   addCardForm.reset();
 });
+
+//***FORM VALIDATOR SETTINGDS***
+const formList = Array.from(document.querySelectorAll(config.formSelector));
+const formValidators = {};
+formList.forEach((form) => {
+  const validator = new FormValidator(form, config);
+  const formName = form.getAttribute("name");
+  formValidators[formName] = validator;
+});
+//**ADD PROFILE VALIDATION***
+formValidators.profileForm.enableValidation();
+
+//**ADD CARD VALIDATION***
+formValidators.addCardForm.enableValidation();
