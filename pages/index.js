@@ -161,6 +161,16 @@ addCardForm.addEventListener("submit", (e) => {
   addCardForm.reset();
 });
 
+//***OBJECT CONFIG SETTINGS***
+const config = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_active",
+  formSelector: ".modal__form",
+};
+
 //***FORM VALIDATOR SETTINGDS***
 const formList = Array.from(document.querySelectorAll(config.formSelector));
 const formValidators = {};
@@ -169,7 +179,9 @@ formList.forEach((form) => {
   const formName = form.getAttribute("name");
   formValidators[formName] = validator;
 });
+
 //**ADD PROFILE VALIDATION***
+
 formValidators.profileForm.enableValidation();
 
 //**ADD CARD VALIDATION***
