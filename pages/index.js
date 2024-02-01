@@ -186,3 +186,11 @@ formValidators.profileForm.enableValidation();
 
 //**ADD CARD VALIDATION***
 formValidators.addCardForm.enableValidation();
+
+//OTHER WAY TO ENABLE VALIDATION
+//const addcardFormValidator = new FormValidator( addCardForm , config);
+
+//const profileEditFormValidator = new FormValidator(profileEditForm, config);
+
+//addcardFormValidator.enableValidation();
+//profileEditFormValidator.enableValidation();
