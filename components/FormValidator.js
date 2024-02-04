@@ -101,7 +101,7 @@ export default class FormValidator {
   }
 
   //***RESET THE FORM***
-  formReset() {
+  resetForm() {
     this._formElement.reset();
   }
 }

@@ -108,7 +108,7 @@
   padding: 0;
   border: 0;
   margin-top: 18px;
-  width: 358px;
+  max-width: 358px;
   transition: opacity 0.3s linear;
 }
 .modal__button_disabled {
