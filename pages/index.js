@@ -191,8 +191,8 @@ function handleProfileAddFormSubmit(evt) {
   userCard["title"] = cardTitleInput.value;
   userCard["url"] = cardUrlInput.value;
   renderCard(userCard);
-  formValidators.profileAddForm.formReset();
-  formValidators.profileAddForm.disableSubmit();
+  formValidators.addCardForm.resetForm();
+  formValidators.addCardForm.disableSubmit();
   closePopop(profileAddModal);
 }
 //***PROFILE EDIT MODAL EVENTS***
