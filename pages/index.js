@@ -188,8 +188,10 @@ previewImageCloseButton.addEventListener("click", () => {
 function handleProfileAddFormSubmit(evt) {
   evt.preventDefault();
   const userCard = {};
-  userCard["title"] = cardTitleInput.value;
-  userCard["url"] = cardUrlInput.value;
+
+  userCard.name = cardTitleInput.value;
+  userCard.link = cardUrlInput.value;
+
   renderCard(userCard);
   formValidators.addCardForm.resetForm();
   formValidators.addCardForm.disableSubmit();
