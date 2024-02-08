@@ -188,14 +188,13 @@ previewImageCloseButton.addEventListener("click", () => {
 function handleProfileAddFormSubmit(evt) {
   evt.preventDefault();
   const userCard = {};
-  userCard["name"] = cardTitleInput.value;
-  userCard["link"] = cardTitleUrl.value;
+  userCard["title"] = cardTitleInput.value;
+  userCard["url"] = cardUrlInput.value;
   renderCard(userCard);
-  formValidators.addCardForm.formReset();
-  formValidators.addCardForm.disableSubmit();
+  formValidators.profileAddForm.formReset();
+  formValidators.profileAddForm.disableSubmit();
   closePopop(profileAddModal);
 }
-
 //***PROFILE EDIT MODAL EVENTS***
 profileEditButton.addEventListener("click", () => {
   fillProfileInputs();
