@@ -90,25 +90,20 @@ const previewImageCloseButton =
 
 //***CARD LIKE SETTINGS***
 /*const cardsContainer = document.querySelector(".cards__list");
-const likeButtons = document.querySelectorAll(".card__like-button");
-initialCards.forEach((item) => {
-  const card = createCard(item);
-  cardsContainer.append(card);
-}); */
+const likeButtons = document.querySelectorAll(".card__like-button"); */
 
 //***NEW CREATE/RENDER CARD FUNCTION***
 const cardsContainer = document.querySelector(".cards__list");
-
-/*I USED THIS FUNCTION TO CREATE THE CARD. I AM NOT UNDERSTANDING THE COMMENTS OF CREATING ANOTHER FUNCTION
-function createCard(item) {
-  ....
-return cardElement.generateCard();} 
-HOW IS THE FUNCTION BELOW A COPY PASTE? IT IS A FUNCTION WITH THE NEW CARD ELEMENT THAT I DID NOT HAVE BEFORE*/
 
 function renderCard(cardData) {
   const card = new Card(cardData, "#card", handleImageClick);
   const cardElement = card.generateCard();
   cardsContainer.prepend(cardElement);
+}
+//*** APPEND CARDS***
+function appendCard(cardData) {
+  const cardElement = createCard(cardData);
+  cardsContainer.append(cardElement);
 }
 
 //***RENDER INITIAL CARDS FUNCTION***
@@ -135,11 +130,11 @@ function fillProfileInputs() {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 }
-profileEditButton.addEventListener("click", () => {
+/*profileEditButton.addEventListener("click", () => {
   openPopup(profileEditModal);
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-});
+});*/
 
 profileEditCloseButton.addEventListener("click", () => {
   closePopup(profileEditModal);
