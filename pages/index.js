@@ -172,7 +172,9 @@ profileEditForm.addEventListener("submit", (e) => {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
 });
-
+profileAddCloseButton.addEventListener("click", () => {
+  closePopup(profileAddModal);
+});
 previewImageCloseButton.addEventListener("click", () => {
   closePopup(modalImagePreview);
 });
@@ -200,12 +202,6 @@ profileEditButton.addEventListener("click", () => {
 //***ADD IMAGE MODAL EVENTS***
 profileAddButton.addEventListener("click", () => openPopup(profileAddModal));
 imageAddForm.addEventListener("submit", handleProfileAddFormSubmit);
-
-//***MODAL CLOSE EVENT LOOP***
-closeButtons.forEach((button) => {
-  const modal = button.closest(".modal__close");
-  button.addEventListener("click", () => closePopup(modal));
-});
 
 //***OBJECT CONFIG SETTINGS***
 const config = {
@@ -240,3 +236,9 @@ const profileEditFormValidator = new FormValidator(profileEditForm, config);
 
 addcardFormValidator.enableValidation();
 profileEditFormValidator.enableValidation(); */
+
+/* **MODAL CLOSE EVENT LOOP***
+closeButtons.forEach((button) => {
+  const modal = button.closest(".modal__close");
+  button.addEventListener("click", () => closePopup(modal));
+});*/
