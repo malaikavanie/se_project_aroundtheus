@@ -99,6 +99,12 @@ initialCards.forEach((item) => {
 //***NEW CREATE/RENDER CARD FUNCTION***
 const cardsContainer = document.querySelector(".cards__list");
 
+/*I USED THIS FUNCTION TO CREATE THE CARD. I AM NOT UNDERSTANDING THE COMMENTS OF CREATING ANOTHER FUNCTION
+function createCard(item) {
+  ....
+return cardElement.generateCard();} 
+HOW IS THE FUNCTION BELOW A COPY PASTE? IT IS A FUNCTION WITH THE NEW CARD ELEMENT THAT I DID NOT HAVE BEFORE*/
+
 function renderCard(cardData) {
   const card = new Card(cardData, "#card", handleImageClick);
   const cardElement = card.generateCard();
@@ -115,16 +121,11 @@ function handleImageClick(name, link) {
   previewImage.setAttribute("src", link);
   previewImage.setAttribute("alt", name);
   previewImageTitle.textContent = name;
-  openPopop(modalImagePreview);
+  openPopup(modalImagePreview);
 }
 
-//***ITERATE INITIAL CARDS IN REVERSE***
-initialCards.reverse().forEach((cardData) => {
-  renderCard(cardData);
-});
-
 //***FUNCTION OPEN MODAL***
-function openPopop(modal) {
+function openPopup(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalWithEscape);
   modal.addEventListener("mousedown", closeModalWithRemoteClick);
@@ -135,17 +136,17 @@ function fillProfileInputs() {
   profileDescriptionInput.value = profileDescription.textContent;
 }
 profileEditButton.addEventListener("click", () => {
-  openPopop(profileEditModal);
+  openPopup(profileEditModal);
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
 });
 
 profileEditCloseButton.addEventListener("click", () => {
-  closePopop(profileEditModal);
+  closePopup(profileEditModal);
 });
 
 //***FUNCTION CLOSE MODAL***
-function closePopop(modal) {
+function closePopup(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalWithEscape);
   modal.removeEventListener("mousedown", closeModalWithRemoteClick);
@@ -154,34 +155,26 @@ function closePopop(modal) {
 function closeModalWithEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
-    closePopop(openedModal);
+    closePopup(openedModal);
   }
 }
 
 function closeModalWithRemoteClick(evt) {
   if (evt.target === evt.currentTarget) {
-    closePopop(evt.currentTarget);
+    closePopup(evt.currentTarget);
   }
 }
 
 //***EDIT PROFILE SETTINGS***
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  closePopop(profileEditModal);
+  closePopup(profileEditModal);
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
 });
-//***ADD BUTTON SETTINGS***
-profileAddButton.addEventListener("click", () => {
-  openPopop(profileAddModal);
-});
-
-profileAddCloseButton.addEventListener("click", () => {
-  closePopop(profileAddModal);
-});
 
 previewImageCloseButton.addEventListener("click", () => {
-  closePopop(modalImagePreview);
+  closePopup(modalImagePreview);
 });
 
 //***ADD IMAGE FUNCTION***
@@ -195,23 +188,23 @@ function handleProfileAddFormSubmit(evt) {
   renderCard(userCard);
   formValidators.addCardForm.resetForm();
   formValidators.addCardForm.disableSubmit();
-  closePopop(profileAddModal);
+  closePopup(profileAddModal);
 }
 //***PROFILE EDIT MODAL EVENTS***
 profileEditButton.addEventListener("click", () => {
   fillProfileInputs();
   formValidators.profileForm.checkValidity();
-  openPopop(profileEditModal);
+  openPopup(profileEditModal);
 });
 
 //***ADD IMAGE MODAL EVENTS***
-profileAddButton.addEventListener("click", () => openPopop(profileAddModal));
+profileAddButton.addEventListener("click", () => openPopup(profileAddModal));
 imageAddForm.addEventListener("submit", handleProfileAddFormSubmit);
 
 //***MODAL CLOSE EVENT LOOP***
 closeButtons.forEach((button) => {
   const modal = button.closest(".modal__close");
-  button.addEventListener("click", () => closePopop(modal));
+  button.addEventListener("click", () => closePopup(modal));
 });
 
 //***OBJECT CONFIG SETTINGS***
@@ -224,7 +217,7 @@ const config = {
   formSelector: ".modal__form",
 };
 
-//***FORM VALIDATOR SETTINGDS***
+//***FORM VALIDATOR SETTINGS***
 const formList = Array.from(document.querySelectorAll(config.formSelector));
 const formValidators = {};
 formList.forEach((form) => {
