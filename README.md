@@ -24,7 +24,7 @@ Good luck and have fun!
 
 \*Project name: Around the US by Malaika.
 
-\*Project Description: Project set up with Figma/GitHub/GitBash/HTML/CSS.
+\*Project Description: Project set up with Figma/GitHub/GitBash/HTML/CSS/JAVASCRIT/WEBPACK.
 
 \*Project deployed
 

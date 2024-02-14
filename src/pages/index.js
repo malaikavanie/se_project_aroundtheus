@@ -1,8 +1,114 @@
 //***IMPORT SETTINGS***
+import "../pages/index.css";
 import Card from "../components/Card.js";
+import Section from "../components/Section.js";
 import FormValidator from "../components/FormValidator.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import {
+  initialCards,
+  config,
+  profileEditButton,
+  profileAddButton,
+  profileInputList,
+  formList,
+  formValidators,
+} from "../utils/Constants.js";
+import UserInfo from "../components/UserInfo.js";
 
-//***OBJECT-CARDS ARRAY SETTINGS***
+//*** NEW USER INFO***
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  descriptionSelector: ".profile__description",
+});
+
+//***FORM VALIDATOR CREATOR***
+formList.forEach((form) => {
+  const validator = new FormValidator(form, config);
+  const formName = form.getAttribute("name");
+  validator.enableValidation();
+  formValidators[formName] = validator;
+});
+
+//***RENDER CARD FUNCTION***
+function renderCard(cardData) {
+  const card = new Card(cardData, "#card", handleImageClick);
+  return card.generateCard();
+}
+
+//***NEW SECTION***
+const cardsContainer = new Section(
+  { items: initialCards, renderer: renderCard },
+  ".cards__list"
+);
+
+//***RENDER CARDSCONTAINER***
+cardsContainer.rendererItems();
+
+//-----------CREATE A MODALWITHFORM INSTANCE FOR THE PROFILE EDIT------------>>
+const profileEditModal = new PopupWithForm(
+  "#profile-edit-modal",
+  handleProfileFormSubmit,
+  config
+);
+
+//-----------CREATE A MODALWITHFORM INSTANCE FOR THE ADD IMAGE------------>>
+const profileAddModal = new PopupWithForm(
+  "#profile-add-modal",
+  handleAddImageFormSubmit,
+  config
+);
+
+//***PREVIEW IMAGE***
+const modalImagePreview = new PopupWithImage("#image-preview-modal");
+
+//***PROFILE EDIT SUBMIT***
+function handleProfileFormSubmit(values) {
+  userInfo.setUserInfo(values);
+  profileEditModal.close();
+}
+
+//***ADD IMAGE SUBMIT***
+function handleAddImageFormSubmit(values) {
+  const newCard = renderCard(values);
+  cardsContainer.addItem(newCard);
+  formValidators.addCardForm.resetForm();
+  formValidators.addCardForm.disableSubmit();
+  addImageModal.close();
+}
+
+//***POPULATE PREVIEW MODAL***
+function handleImageClick(name, link) {
+  previewModal.open({ name, link });
+}
+
+//*** FILL INPUTS OF PROFILE EDIT MODAL ***
+function fillProfileInputs() {
+  const userCurrentInfo = userInfo.getUserInfo();
+  profileInputList[0].value = userCurrentInfo.name;
+  profileInputList[1].value = userCurrentInfo.description;
+}
+
+//***  CLICK EVENT LISTENER FOR THE EDIT BUTTON***
+editButton.addEventListener("click", () => {
+  fillProfileInputs();
+  formValidators.profileForm.checkValidity();
+  profileEditModal.open();
+});
+
+//***CLICK EVENT LISTENER FOR THE ADD BUTTON***
+profileAddButton.addEventListener("click", () => addImageModal.open());
+
+//*** EVENT LISTENERS FOR THE EDIT PROFILE MODAL***
+profileEditModal.setEventListeners();
+
+//***EVENT LISTENERS TO THE ADD IMAGE***
+profileAddImage.setEventListeners();
+
+// *** EVENT LISTENERS FOR THE PREVIEW IMAGE MODAL****
+modalImagePreview.setEventListeners();
+
+/* /***OBJECT-CARDS ARRAY SETTINGS***
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -90,7 +196,7 @@ const previewImageCloseButton =
 
 //***CARD LIKE SETTINGS***
 /*const cardsContainer = document.querySelector(".cards__list");
-const likeButtons = document.querySelectorAll(".card__like-button"); */
+const likeButtons = document.querySelectorAll(".card__like-button"); 
 
 //***NEW CREATE/RENDER CARD FUNCTION***
 const cardsContainer = document.querySelector(".cards__list");
@@ -134,7 +240,7 @@ function fillProfileInputs() {
   openPopup(profileEditModal);
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-});*/
+});
 
 profileEditCloseButton.addEventListener("click", () => {
   closePopup(profileEditModal);
