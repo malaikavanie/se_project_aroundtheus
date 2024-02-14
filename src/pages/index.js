@@ -45,14 +45,14 @@ const cardsContainer = new Section(
 //***RENDER CARDSCONTAINER***
 cardsContainer.rendererItems();
 
-//-----------CREATE A MODALWITHFORM INSTANCE FOR THE PROFILE EDIT------------>>
+//***POPUPWITHFORM***
 const profileEditModal = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileFormSubmit,
   config
 );
 
-//-----------CREATE A MODALWITHFORM INSTANCE FOR THE ADD IMAGE------------>>
+//***POPUPWITHFORMIMAGE***
 const profileAddModal = new PopupWithForm(
   "#profile-add-modal",
   handleAddImageFormSubmit,
