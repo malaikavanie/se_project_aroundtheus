@@ -74,7 +74,7 @@ function handleAddImageFormSubmit(values) {
   cardsContainer.addItem(newCard);
   formValidators.addCardForm.resetForm();
   formValidators.addCardForm.disableSubmit();
-  addImageModal.close();
+  profileAddModal.close();
 }
 
 //***POPULATE PREVIEW MODAL***
@@ -90,7 +90,7 @@ function fillProfileInputs() {
 }
 
 //***  CLICK EVENT LISTENER FOR THE EDIT BUTTON***
-editButton.addEventListener("click", () => {
+profileEditButton.addEventListener("click", () => {
   fillProfileInputs();
   formValidators.profileForm.checkValidity();
   profileEditModal.open();
@@ -103,7 +103,7 @@ profileAddButton.addEventListener("click", () => addImageModal.open());
 profileEditModal.setEventListeners();
 
 //***EVENT LISTENERS TO THE ADD IMAGE***
-profileAddImage.setEventListeners();
+addImageModal.setEventListeners();
 
 // *** EVENT LISTENERS FOR THE PREVIEW IMAGE MODAL****
 modalImagePreview.setEventListeners();

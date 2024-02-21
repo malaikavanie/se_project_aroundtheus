@@ -25,9 +25,9 @@ export default class Modal {
 
   //***ADD CLICK EVENT LISTENER TO THE CLOSE BUTTON***
   setEventListeners() {
-    this._closeButton = this._modalElement.querySelector(".modal__close");
+    this._closeButton = this._popupElement.querySelector(".modal__close");
     this._closeButton.addEventListener("click", this.close);
-    this._modalElement.addEventListener("mousedown", (evt) => {
+    this._popupElement.addEventListener("mousedown", (evt) => {
       if (evt.target === evt.currentTarget) {
         this.close();
       }
