@@ -21,7 +21,7 @@ export default class Card {
   _setEventListeners() {
     //***CLICK CARD EVENT LISTENER***
     this._imageElement.addEventListener("click", () => {
-      this.handleImageClick(this._name, this._link);
+      this.handleImageClick(this._title, this._url);
     });
 
     //***CLICK LIKE EVENT LISTENER***

@@ -10,9 +10,9 @@ export default class PopupWithImage extends Popup {
   }
   //*** FUNCTIONALITY SETTINGS OPEN/CLOSE***
   open({ name, link }) {
-    this._pictureImage.src = link;
-    this._pictureImage.alt = name;
-    this._pictureTitle.textContent = name;
+    this._profileImage.src = url;
+    this._profileImage.alt = name;
+    this._profileTitle.textContent = title;
     super.open();
   }
 

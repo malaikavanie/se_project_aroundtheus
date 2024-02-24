@@ -12,7 +12,7 @@ export default class Modal {
 
   //***ADD DOM ELEMENT  TO THE CONTAINER***
   close = () => {
-    this._modalElement.classList.remove("modal_opened");
+    this._popupElement.classList.remove("modal_opened");
     document.removeEventListener("keyup", this._handleEscClose);
   };
 

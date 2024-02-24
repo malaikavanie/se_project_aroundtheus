@@ -18,16 +18,16 @@ import UserInfo from "../components/UserInfo.js";
 
 //*** NEW USER INFO***
 const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
+  titleSelector: ".profile__title",
   descriptionSelector: ".profile__description",
 });
 
 //***FORM VALIDATOR CREATOR***
 formList.forEach((form) => {
   const validator = new FormValidator(form, config);
-  const formName = form.getAttribute("name");
+  const formTitle = form.getAttribute("title");
   validator.enableValidation();
-  formValidators[formName] = validator;
+  formValidators[formTitle] = validator;
 });
 
 //***RENDER CARD FUNCTION***
@@ -53,7 +53,7 @@ const profileEditModal = new PopupWithForm(
 );
 
 //***POPUPWITHFORMIMAGE***
-const profileAddModal = new PopupWithForm(
+const addCardForm = new PopupWithForm(
   "#profile-add-modal",
   handleAddImageFormSubmit,
   config
@@ -74,18 +74,18 @@ function handleAddImageFormSubmit(values) {
   cardsContainer.addItem(newCard);
   formValidators.addCardForm.resetForm();
   formValidators.addCardForm.disableSubmit();
-  profileAddModal.close();
+  addCardForm.close();
 }
 
 //***POPULATE PREVIEW MODAL***
-function handleImageClick(name, link) {
-  previewModal.open({ name, link });
+function handleImageClick(title, url) {
+  modalImagePreview.open({ title, url });
 }
 
 //*** FILL INPUTS OF PROFILE EDIT MODAL ***
 function fillProfileInputs() {
   const userCurrentInfo = userInfo.getUserInfo();
-  profileInputList[0].value = userCurrentInfo.name;
+  profileInputList[0].value = userCurrentInfo.title;
   profileInputList[1].value = userCurrentInfo.description;
 }
 
@@ -97,13 +97,13 @@ profileEditButton.addEventListener("click", () => {
 });
 
 //***CLICK EVENT LISTENER FOR THE ADD BUTTON***
-profileAddButton.addEventListener("click", () => addImageModal.open());
+profileAddButton.addEventListener("click", () => addCardForm.open());
 
 //*** EVENT LISTENERS FOR THE EDIT PROFILE MODAL***
 profileEditModal.setEventListeners();
 
 //***EVENT LISTENERS TO THE ADD IMAGE***
-addImageModal.setEventListeners();
+addCardForm.setEventListeners();
 
 // *** EVENT LISTENERS FOR THE PREVIEW IMAGE MODAL****
 modalImagePreview.setEventListeners();
