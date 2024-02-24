@@ -25,13 +25,14 @@ const userInfo = new UserInfo({
 //***FORM VALIDATOR CREATOR***
 formList.forEach((form) => {
   const validator = new FormValidator(form, config);
-  const formTitle = form.getAttribute("title");
+  const formName = form.getAttribute("name");
   validator.enableValidation();
-  formValidators[formTitle] = validator;
+  formValidators[formName] = validator;
 });
 
 //***RENDER CARD FUNCTION***
 function renderCard(cardData) {
+  console.log(cardData);
   const card = new Card(cardData, "#card", handleImageClick);
   return card.generateCard();
 }
