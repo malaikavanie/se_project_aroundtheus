@@ -7,12 +7,13 @@ export default class PopupWithImage extends Popup {
     this._previewImageTitle = this._popupElement.querySelector(
       ".modal__image-title"
     );
+    console.log(this);
   }
   //*** FUNCTIONALITY SETTINGS OPEN/CLOSE***
   open({ name, link }) {
-    this._profileImage.src = url;
-    this._profileImage.alt = name;
-    this._profileTitle.textContent = title;
+    this._previewImage.src = link;
+    this._previewImage.alt = name;
+    this._previewImageTitle.textContent = name;
     super.open();
   }
 

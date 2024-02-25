@@ -79,8 +79,8 @@ function handleAddImageFormSubmit(values) {
 }
 
 //***POPULATE PREVIEW MODAL***
-function handleImageClick(title, url) {
-  modalImagePreview.open({ title, url });
+function handleImageClick(name, link) {
+  modalImagePreview.open({ name, link });
 }
 
 //*** FILL INPUTS OF PROFILE EDIT MODAL ***
