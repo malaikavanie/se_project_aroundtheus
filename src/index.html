@@ -30,6 +30,11 @@
             alt="Avatar"
             class="profile__image"
           />
+          <button
+            class="profile__image-button"
+            type="button"
+            aria-label="edit profile image"
+          ></button>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -152,6 +157,36 @@
             Create
           </button>
         </form>
+      </div>
+    </div>
+    <!-- CHANGE PROFILE PICTURE MODAL -->
+    <div class="modal" id="modal-change-profile">
+      <div class="modal__container">
+        <button class="modal__close modal__close_type_form"></button>
+        <p class="modal__title">Change profile image</p>
+        <form class="modal__form" name="changeImageForm" novalidate>
+          <label class="modal__label">
+            <input
+              type="url"
+              class="modal__input modal__input_type_image-link"
+              placeholder="Image link"
+              name="link"
+              id="card-url"
+              required
+            />
+            <span class="modal__error" id="card-url-error"></span>
+          </label>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- COMFIRM DELETE MODAL -->
+    <div class="modal" id="modal-confirm-delete">
+      <div class="modal__container">
+        <button class="modal__close modal__close_type_form"></button>
+        <p class="modal__title">Are you sure?</p>
+        <button class="modal__button" type="submit">Yes</button>
       </div>
     </div>
     <!--PREVIEW IMAGE-->

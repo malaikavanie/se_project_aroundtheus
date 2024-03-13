@@ -40,8 +40,9 @@ export const config = {
 const profile = document.querySelector(".profile");
 export const profileEditButton = profile.querySelector("#profile-edit-button");
 export const profileAddButton = profile.querySelector(".profile__add-button");
+export const editImageButton = profile.querySelector(".profile__image-button");
 
-//-----------DEFINING AN ARRAY OF ALL PROFILE EDIT INPUTS--------------->>
+//***DEFINING AN ARRAY OF ALL PROFILE EDIT INPUTS***
 const profileEditModal = document.querySelector("#profile-edit-modal");
 export const profileInputList = Array.from(
   profileEditModal.querySelectorAll(".modal__input")

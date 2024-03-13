@@ -17,6 +17,10 @@ export default class Card {
 
     return cardElement;
   }
+  //***GET THE CARD ELEMENT OUT OF THE TEMPLATE***
+  getId() {
+    return this._id;
+  }
 
   //***ADD CARDS EVENT LISTENERS***
   _setEventListeners() {
