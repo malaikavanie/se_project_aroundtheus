@@ -44,15 +44,16 @@ export default class Api {
   }
 
   //***ADD CARD METHOD***
-  addCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
+  async addCard({ name, link }) {
+    const res = await fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
         name: name,
         link: link,
       }),
-    }).then(this.renderResult);
+    });
+    return this.renderResult(res);
   }
 
   //***DELETE CARD METHOD***
@@ -63,23 +64,7 @@ export default class Api {
     });
     return this.renderResult(res);
   }
-  /** DELETE CCARD***
-  function handleDeleteClick(card) {
-    deleteConfirmationModal.open();
-    deleteConfirmationModal.setCallback(() => {
-      deleteConfirmationModal.renderSaving(true);
-      api
-        .deleteCard(card.getId())
-        .then(() => {
-          card.deleteCard();
-          deleteConfirmationModal.close();
-        })
-        .catch(console.error)
-        .finally(() => {
-          deleteConfirmationModal.renderSaving(false);
-        });
-    });
-  }*/
+
   //***LIKE CARD METHOD***
   likeCard(cardId, isLiked) {
     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
