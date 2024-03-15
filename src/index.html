@@ -159,11 +159,11 @@
         </form>
       </div>
     </div>
-    <!-- CHANGE PROFILE PICTURE MODAL -->
+    <!-- UPDATE AVATAR  MODAL -->
     <div class="modal" id="modal-change-profile">
       <div class="modal__container">
         <button class="modal__close modal__close_type_form"></button>
-        <p class="modal__title">Change profile image</p>
+        <p class="modal__heading">Change profile image</p>
         <form class="modal__form" name="changeImageForm" novalidate>
           <label class="modal__label">
             <input
@@ -185,8 +185,15 @@
     <div class="modal" id="modal-confirm-delete">
       <div class="modal__container">
         <button class="modal__close modal__close_type_form"></button>
-        <p class="modal__title">Are you sure?</p>
-        <button class="modal__button" type="submit">Yes</button>
+        <p class="modal__heading">Are you sure?</p>
+        <button
+          class="modal__button"
+          type="submit"
+          id="profile-yes-modal"
+          aria-label="yes modal"
+        >
+          Yes
+        </button>
       </div>
     </div>
     <!--PREVIEW IMAGE-->

@@ -208,6 +208,14 @@
     margin-top: 15px;
     width: 100%;
   }
+  .modal__yes {
+    max-width: 238px;
+    font-size: 14px;
+    line-height: 17px;
+    height: 46px;
+    margin-top: 15px;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 520px) {

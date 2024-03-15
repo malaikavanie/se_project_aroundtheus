@@ -101,7 +101,7 @@ function handleLikeClick(card) {
 function handleAvatarFormSubmit(values) {
   avatarEditPopup.renderSaving(true);
   api
-    .changeAvatar(values)
+    .updateAvatar(values)
     .then((res) => {
       userInfo.setUserAvatar(res.avatar);
       avatarEditPopup.close();
@@ -119,7 +119,7 @@ function handleProfileFormSubmit(values) {
     .editProfile(values)
     .then((res) => {
       userInfo.setUserInfo({
-        name: res.name,
+        title: res.name,
         description: res.about,
       });
       profileEditPopup.close();
@@ -214,7 +214,7 @@ function fillProfileInputs() {
 
 //***  CLICK EVENT LISTENER FOR THE EDIT BUTTON***
 profileEditButton.addEventListener("click", () => {
-  profileEditPopup.setInputValues(userInfo.getUserInfo());
+  const userData = userInfo.getUserInfo();
   formValidators.profileForm.checkValidity();
   profileEditPopup.open();
 });
