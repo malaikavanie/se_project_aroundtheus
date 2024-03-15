@@ -47,19 +47,19 @@ api
   })
   .catch(console.error);
 
-/* /*** INITIAL CARDS FROM THE API***
+const cardsContainer = new Section(
+  { items: [], renderer: renderCard },
+  ".cards__list"
+);
+//*** INITIAL CARDS FROM THE API***
 api
   .getInitialCards()
   .then((res) => {
-    /* /***NEW CLASS INSTANCE FOR THE CARDS CONTAINER***
-    cardsContainer = new Section(
-      { items: res, renderer: renderCard },
-      ".cards__list"
-    );*
     //***RENDERER METHOD ON CARDSCONTAINER***
-    cardsContainer.rendererItems();
+
+    cardsContainer.rendererItems(res);
   })
-  .catch(console.error);*/
+  .catch(console.error);
 
 //***PREVIEW IMAGE***
 const previewPopup = new PopupWithImage("#image-preview-modal");
@@ -73,6 +73,7 @@ const profileEditPopup = new PopupWithForm(
 
 //***FUNCTION HANDLING DELETE CLICK***
 function handleDeleteClick(card) {
+  console.log(card);
   deleteConfirmationPopup.open();
   deleteConfirmationPopup.setCallback(() => {
     deleteConfirmationPopup.renderSaving(true);
@@ -182,14 +183,14 @@ const avatarEditPopup = new PopupWithForm(
   config
 );
 
-//***NEW SECTION***
+/*/***NEW SECTION***
 const cardsContainer = new Section(
   { items: initialCards, renderer: renderCard },
   ".cards__list"
-);
+);*/
 
 //***RENDER CARDSCONTAINER***
-cardsContainer.rendererItems();
+//cardsContainer.rendererItems();
 
 /* **ADD IMAGE SUBMIT***
 function handleAddImageFormSubmit(values) {

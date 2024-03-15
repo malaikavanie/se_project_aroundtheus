@@ -42,7 +42,7 @@ export default class Card {
   }
 
   //*** HANDLE DELETE EVENT LISTENER***
-  _deleteCard() {
+  deleteCard() {
     this._element.remove();
     this._element = null;
   }
