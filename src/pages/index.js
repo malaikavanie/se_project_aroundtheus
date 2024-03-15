@@ -27,6 +27,20 @@ const userInfo = new UserInfo({
   avatarSelector: ".profile__image",
 });
 
+//***CARD DELETE CONFIRMATION***
+const deleteConfirmationPopup = new PopupWithConfirmation(
+  "#modal-confirm-delete",
+  handleDeleteFormSubmit,
+  config
+);
+
+//***CHANGE PROFILE IMAGE***
+const avatarEditPopup = new PopupWithForm(
+  "#modal-change-profile",
+  handleAvatarFormSubmit,
+  config
+);
+
 //***NEW API***
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -70,8 +84,24 @@ const profileEditPopup = new PopupWithForm(
   handleProfileFormSubmit,
   config
 );
+//***FUNCTION HANDLING DELETE SUBMIT***
+function handleDeleteFormSubmit(values) {
+  deleteConfirmationPopup.renderSaving(true);
+  api
+    .deleteCard(values)
+    .then((res) => {
+      const deleteCard = renderCard(res);
+      cardsContainer.deleteItem(deleteCard);
+      formValidators.deleteForm.resetForm();
+      deleteConfirmationPopup.close();
+    })
+    .catch(console.error)
+    .finally(() => {
+      deleteConfirmationPopup.renderSaving(false);
+    });
+}
 
-//***FUNCTION HANDLING DELETE CLICK***
+/*/***FUNCTION HANDLING DELETE CLICK***
 function handleDeleteClick(card) {
   console.log(card);
   deleteConfirmationPopup.open();
@@ -88,7 +118,7 @@ function handleDeleteClick(card) {
         deleteConfirmationPopup.renderSaving(false);
       });
   });
-}
+}*/
 
 //***FUNCTION HANDLING LIKE CLICK***
 function handleLikeClick(card) {
@@ -169,19 +199,6 @@ function renderCard(cardData) {
   const card = new Card(cardData, "#card", handleImageClick, handleDeleteClick);
   return card.generateCard();
 }
-
-//***CARD DELETE CONFIRMATION***
-const deleteConfirmationPopup = new PopupWithConfirmation(
-  "#modal-confirm-delete",
-  config
-);
-
-//***CHANGE PROFILE IMAGE***
-const avatarEditPopup = new PopupWithForm(
-  "#modal-change-profile",
-  handleAvatarFormSubmit,
-  config
-);
 
 /*/***NEW SECTION***
 const cardsContainer = new Section(

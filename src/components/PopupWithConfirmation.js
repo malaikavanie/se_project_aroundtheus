@@ -28,3 +28,14 @@ export default class PopupWithConfirmation extends Popup {
     super.setEventListeners();
   }
 }
+
+/*/***ADDING FUNCTIONALITY TO THE SETEVENTLISTENERS METHOD**
+  setEventListeners() {
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      const values = this._getInputValues();
+      this._formSubmit(values);
+    });
+    super.setEventListeners();
+  }
+  */
