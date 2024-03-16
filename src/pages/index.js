@@ -197,7 +197,13 @@ formList.forEach((form) => {
 //***RENDER CARD FUNCTION***
 function renderCard(cardData) {
   // console.log(cardData);
-  const card = new Card(cardData, "#card", handleImageClick, handleDeleteClick);
+  const card = new Card(
+    cardData,
+    "#card",
+    handleImageClick,
+    handleDeleteClick,
+    handleLikeClick
+  );
   return card.generateCard();
 }
 

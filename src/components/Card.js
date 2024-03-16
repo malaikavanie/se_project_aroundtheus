@@ -1,12 +1,20 @@
 export default class Card {
   //***.CARD CONSTRUCTOR***
-  constructor(data, cardSelector, handleImageClick, handleDeleteClick) {
+  constructor(
+    data,
+    cardSelector,
+    handleImageClick,
+    handleDeleteClick,
+    handleLikeClick
+  ) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;
+    this.isLiked = data.isLiked;
     this._cardSelector = cardSelector;
     this.handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
   }
 
   //***GET TEMPLATE***
@@ -52,6 +60,17 @@ export default class Card {
     this._likeButton.classList.toggle("card__like-button_active");
   }
 
+  //***METHOD TO HANDLE CARD LIKE BUTTON CLICK***
+  toggleLikeCard(isLiked) {
+    this.isLiked = isLiked;
+    this.renderLikeCard();
+  }
+
+  renderLikeCard() {
+    this.isLiked
+      ? this._likeButton.classList.add("card__like-button_active")
+      : this._likeButton.classList.remove("card__like-button_active");
+  }
   ///***POPULATE CARD ***
   generateCard() {
     this._element = this._getTemplate();
