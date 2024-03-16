@@ -30,7 +30,6 @@ const userInfo = new UserInfo({
 //***CARD DELETE CONFIRMATION***
 const deleteConfirmationPopup = new PopupWithConfirmation(
   "#modal-confirm-delete",
-  handleDeleteFormSubmit,
   config
 );
 
@@ -84,7 +83,7 @@ const profileEditPopup = new PopupWithForm(
   handleProfileFormSubmit,
   config
 );
-//***FUNCTION HANDLING DELETE SUBMIT***
+/*/***FUNCTION HANDLING DELETE SUBMIT***
 function handleDeleteFormSubmit(values) {
   deleteConfirmationPopup.renderSaving(true);
   api
@@ -101,9 +100,11 @@ function handleDeleteFormSubmit(values) {
     });
 }
 
-/*/***FUNCTION HANDLING DELETE CLICK***
+*/
+
+//***FUNCTION HANDLING DELETE CLICK***
 function handleDeleteClick(card) {
-  console.log(card);
+  //console.log(card);
   deleteConfirmationPopup.open();
   deleteConfirmationPopup.setCallback(() => {
     deleteConfirmationPopup.renderSaving(true);
@@ -118,7 +119,7 @@ function handleDeleteClick(card) {
         deleteConfirmationPopup.renderSaving(false);
       });
   });
-}*/
+}
 
 //***FUNCTION HANDLING LIKE CLICK***
 function handleLikeClick(card) {
