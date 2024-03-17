@@ -39,15 +39,16 @@ export default class Card {
       this.handleImageClick(this._name, this._link);
     });
 
-    //***CLICK LIKE EVENT LISTENER***
+    /*/***CLICK LIKE EVENT LISTENER***
     this._likeButton.addEventListener("click", () => {
       this.likeCard();
-    });
+    });*/
 
     //*** CLICK DELETE EVENT LISTENER***
     this._deleteButton.addEventListener("click", () => {
       this._handleDeleteClick(this);
     });
+
     //*** CLICK LIKED EVENT LISTENER***
     this._likeButton.addEventListener("click", () => {
       this._handleLikeClick(this);
@@ -60,10 +61,10 @@ export default class Card {
     this._element = null;
   }
 
-  //***HANDLE CLICK LIKE EVENT LISTENER***
+  /*/***HANDLE CLICK LIKE EVENT LISTENER***
   likeCard() {
     this._likeButton.classList.toggle("card__like-button_active");
-  }
+  }*/
 
   //***METHOD TO HANDLE CARD LIKE BUTTON CLICK***
   toggleLikeCard(isLiked) {
@@ -87,7 +88,7 @@ export default class Card {
     this._imageElement.setAttribute("src", this._link);
     this._imageElement.setAttribute("alt", this._name);
     this._element.querySelector(".card__title").textContent = this._name;
-
+    this.renderLikeCard();
     return this._element;
   }
 }
