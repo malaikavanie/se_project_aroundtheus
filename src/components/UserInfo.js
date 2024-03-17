@@ -9,14 +9,14 @@ export default class UserInfo {
   //***RETURN OBJECT USERINFO***
   getUserInfo() {
     const userCurrentInfo = {};
-    userCurrentInfo.title = this._titleElement.textContent;
+    userCurrentInfo.name = this._titleElement.textContent;
     userCurrentInfo.description = this._descriptionElement.textContent;
     return userCurrentInfo;
   }
 
   //***SET THE USER INFO IN THE PROFILE***
   setUserInfo(data) {
-    this._titleElement.textContent = data.title;
+    this._titleElement.textContent = data.name;
     this._descriptionElement.textContent = data.description;
   }
 

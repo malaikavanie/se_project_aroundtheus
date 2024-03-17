@@ -151,7 +151,7 @@ function handleProfileFormSubmit(values) {
     .editProfile(values)
     .then((res) => {
       userInfo.setUserInfo({
-        title: res.name,
+        name: res.name,
         description: res.about,
       });
       profileEditPopup.close();

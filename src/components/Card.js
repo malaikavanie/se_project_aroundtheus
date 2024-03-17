@@ -26,6 +26,7 @@ export default class Card {
 
     return cardElement;
   }
+
   //***GET THE CARD ELEMENT OUT OF THE TEMPLATE***
   getId() {
     return this._id;
@@ -40,12 +41,16 @@ export default class Card {
 
     //***CLICK LIKE EVENT LISTENER***
     this._likeButton.addEventListener("click", () => {
-      this._likeCard();
+      this.likeCard();
     });
 
     //*** CLICK DELETE EVENT LISTENER***
     this._deleteButton.addEventListener("click", () => {
       this._handleDeleteClick(this);
+    });
+    //*** CLICK LIKED EVENT LISTENER***
+    this._likeButton.addEventListener("click", () => {
+      this._handleLikeClick(this);
     });
   }
 
@@ -56,7 +61,7 @@ export default class Card {
   }
 
   //***HANDLE CLICK LIKE EVENT LISTENER***
-  _likeCard() {
+  likeCard() {
     this._likeButton.classList.toggle("card__like-button_active");
   }
 
