@@ -146,6 +146,7 @@ function handleAvatarFormSubmit(values) {
 
 //***FUNCTION HANDLING PROFILE EDIT SUBMIT***
 function handleProfileFormSubmit(values) {
+  //profileEditPopup.renderLoading(true);
   profileEditPopup.renderSaving(true);
   api
     .editProfile(values)
@@ -239,7 +240,9 @@ function fillProfileInputs() {
 
 //***  CLICK EVENT LISTENER FOR THE EDIT BUTTON***
 profileEditButton.addEventListener("click", () => {
-  const userData = userInfo.getUserInfo();
+  //const userData = userInfo.getUserInfo();
+  profileEditPopup.setInputValues(userInfo.getUserInfo());
+
   formValidators.profileForm.checkValidity();
   profileEditPopup.open();
 });

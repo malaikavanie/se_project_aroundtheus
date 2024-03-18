@@ -43,9 +43,9 @@ export const profileAddButton = profile.querySelector(".profile__add-button");
 export const editImageButton = profile.querySelector(".profile__image-button");
 
 //***DEFINING AN ARRAY OF ALL PROFILE EDIT INPUTS***
-const profileEditPopup = document.querySelector("#profile-edit-modal");
+const modalProfileEdit = document.querySelector("#profile-edit-modal");
 export const profileInputList = Array.from(
-  profileEditPopup.querySelectorAll(".modal__input")
+  modalProfileEdit.querySelectorAll(".modal__input")
 );
 
 //***ARRAY FOR ALL FORM ELEMENTS***

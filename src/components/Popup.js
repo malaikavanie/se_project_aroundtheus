@@ -1,5 +1,5 @@
-export default class Modal {
-  //***MODAL CONSTRUCTOR***
+export default class Popup {
+  //***POPUP CONSTRUCTOR***
   constructor(popupSelector) {
     this._popupElement = document.querySelector(popupSelector);
   }
@@ -16,7 +16,7 @@ export default class Modal {
     document.removeEventListener("keyup", this._handleEscClose);
   };
 
-  //***CLOSE MODAL WITH ESCAPE***
+  //***CLOSE POPUP WITH ESCAPE***
   _handleEscClose = (evt) => {
     if (evt.key === "Escape") {
       this.close();

@@ -13,7 +13,7 @@ export default class PopupWithConfirmation extends Popup {
   //***CHANGE BUTTON TEXT***
   renderSaving(isSaving) {
     isSaving
-      ? (this._button.textContent = "Saving...")
+      ? (this._button.textContent = "Deleting...")
       : (this._button.textContent = this._originalButtonText);
   }
 

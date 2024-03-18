@@ -2,12 +2,18 @@ import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
   //***POPUPWITHFORM CONSTRUCTOR***
-  constructor(popupSelector, formSubmit, { formSelector }) {
+  constructor(
+    popupSelector,
+    formSubmit,
+    { formSelector, submitButtonSelector }
+  ) {
     super(popupSelector);
     this._form = this._popupElement.querySelector(formSelector);
-    this._button = this._form.querySelector(".modal__button");
-    this._originalButtonText = this._button.textContent;
+    this._button = this._popupElement.querySelector(submitButtonSelector);
+    //this._submitButtonText = this._button.textContent;
     this._formSubmit = formSubmit;
+    this._originalButtonText = this._button.textContent;
+
     this._inputList = Array.from(this._form.querySelectorAll(".modal__input"));
   }
 
@@ -28,7 +34,23 @@ export default class PopupWithForm extends Popup {
     });
     super.setEventListeners();
   }
-  //***CHANGE BUTTON TEXT***
+  //***SET MODAL INPUTS***
+  setInputValues(data) {
+    this._inputList.forEach((input) => {
+      input.value = data[input.name];
+    });
+  }
+  //***CHANGE BUTTON TEXT WITH RENDER LOADING/ TRIED THE SUGGESTIONS BUT I RECEIVED SOME ERRORS***
+  /*renderLoading(isLoading, loadingText = "Saving...") {
+    if (isLoading) {
+      this._submitButtonText = this._button.textContent;
+      this._formSubmit = loadingText;
+    } else {
+      this._button.textContent = this._submitButtonText;
+    }
+  }
+}*/
+
   renderSaving(isSaving) {
     isSaving
       ? (this._button.textContent = "Saving...")
