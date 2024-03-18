@@ -44,12 +44,12 @@ export default class Api {
   }
 
   //***EDIT PROFILE METHOD***
-  async editProfile({ title, description }) {
+  async editProfile({ name, description }) {
     const res = await fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: title,
+        name: name,
         about: description,
       }),
     });
