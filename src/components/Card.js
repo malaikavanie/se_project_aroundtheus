@@ -1,10 +1,20 @@
 export default class Card {
   //***.CARD CONSTRUCTOR***
-  constructor(data, cardSelector, handleImageClick) {
+  constructor(
+    data,
+    cardSelector,
+    handleImageClick,
+    handleDeleteClick,
+    handleLikeClick
+  ) {
     this._name = data.name;
     this._link = data.link;
+    this._id = data._id;
+    this.isLiked = data.isLiked;
     this._cardSelector = cardSelector;
     this.handleImageClick = handleImageClick;
+    this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
   }
 
   //***GET TEMPLATE***
@@ -17,6 +27,11 @@ export default class Card {
     return cardElement;
   }
 
+  //***GET THE CARD ELEMENT OUT OF THE TEMPLATE***
+  getId() {
+    return this._id;
+  }
+
   //***ADD CARDS EVENT LISTENERS***
   _setEventListeners() {
     //***CLICK CARD EVENT LISTENER***
@@ -24,27 +39,44 @@ export default class Card {
       this.handleImageClick(this._name, this._link);
     });
 
-    //***CLICK LIKE EVENT LISTENER***
+    /*/***CLICK LIKE EVENT LISTENER***
     this._likeButton.addEventListener("click", () => {
-      this._likeCard();
-    });
+      this.likeCard();
+    });*/
 
     //*** CLICK DELETE EVENT LISTENER***
     this._deleteButton.addEventListener("click", () => {
-      this._deleteCard();
+      this._handleDeleteClick(this);
+    });
+
+    //*** CLICK LIKED EVENT LISTENER***
+    this._likeButton.addEventListener("click", () => {
+      this._handleLikeClick(this);
     });
   }
 
   //*** HANDLE DELETE EVENT LISTENER***
-  _deleteCard() {
+  deleteCard() {
     this._element.remove();
+    this._element = null;
   }
 
-  //***HANDLE CLICK LIKE EVENT LISTENER***
-  _likeCard() {
+  /*/***HANDLE CLICK LIKE EVENT LISTENER***
+  likeCard() {
     this._likeButton.classList.toggle("card__like-button_active");
+  }*/
+
+  //***METHOD TO HANDLE CARD LIKE BUTTON CLICK***
+  toggleLikeCard(isLiked) {
+    this.isLiked = isLiked;
+    this.renderLikeCard();
   }
 
+  renderLikeCard() {
+    this.isLiked
+      ? this._likeButton.classList.add("card__like-button_active")
+      : this._likeButton.classList.remove("card__like-button_active");
+  }
   ///***POPULATE CARD ***
   generateCard() {
     this._element = this._getTemplate();
@@ -56,7 +88,7 @@ export default class Card {
     this._imageElement.setAttribute("src", this._link);
     this._imageElement.setAttribute("alt", this._name);
     this._element.querySelector(".card__title").textContent = this._name;
-
+    this.renderLikeCard();
     return this._element;
   }
 }
