@@ -136,6 +136,8 @@ function handleAvatarFormSubmit(values) {
     .updateAvatar(values)
     .then((res) => {
       userInfo.setUserAvatar(res.avatar);
+      formValidators.changeImageForm.resetForm();
+      formValidators.changeImageForm.disableSubmit();
       avatarEditPopup.close();
     })
     .catch(console.error)

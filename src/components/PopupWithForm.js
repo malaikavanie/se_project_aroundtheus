@@ -10,7 +10,7 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._form = this._popupElement.querySelector(formSelector);
     this._button = this._popupElement.querySelector(submitButtonSelector);
-    //this._submitButtonText = this._button.textContent;
+    //this._submitButtonText = this._submitButton.textContent;
     this._formSubmit = formSubmit;
     this._originalButtonText = this._button.textContent;
 
@@ -40,20 +40,17 @@ export default class PopupWithForm extends Popup {
       input.value = data[input.name];
     });
   }
-  //***CHANGE BUTTON TEXT WITH RENDER LOADING/ TRIED THE SUGGESTIONS BUT I RECEIVED SOME ERRORS***
-  /*renderLoading(isLoading, loadingText = "Saving...") {
-    if (isLoading) {
-      this._submitButtonText = this._button.textContent;
-      this._formSubmit = loadingText;
-    } else {
-      this._button.textContent = this._submitButtonText;
-    }
-  }
-}*/
 
   renderSaving(isSaving) {
     isSaving
       ? (this._button.textContent = "Saving...")
       : (this._button.textContent = this._originalButtonText);
   }
+  /*/***CHANGE BUTTON TEXT WITH RENDER LOADING***
+  renderLoading(isLoading, loadingText = "Saving...") {
+    if (isLoading) {
+      this._button.textContent = loadingText;
+    } else {
+      this._button.textContent = this._originalButtonText;
+    }*/
 }
